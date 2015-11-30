@@ -449,6 +449,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 									
 									// note : the touch events will just not be used if the plugin is not enabled on touch devices
 									self.$tooltip.on('click.'+ self.namespace +' touchstart.'+ self.namespace, function(event) {
+										if(!$(event.target).hasClass('tooltipstered')) {
+											self.$tooltip.find('.tooltipstered').tooltipster('hide');
+										}
 										event.stopPropagation();
 									});
 								}
